@@ -266,7 +266,7 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
         </Flex>
         <Flex
           gap="2rem"
-          dir={'ltr'}
+          dir={isRTL ? 'rtl' : 'ltr'}
           mt={{ base: '1rem', lg: '1rem' }}
           zIndex={999}
           align="center"
@@ -281,11 +281,14 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             _hover={{ transform: 'scale(1.05)' }}
             transition="all 0.2s"
             border="1px solid white"
-            dir={'ltr'}
             mb={{ base: '1.5rem' }}
             onClick={handlePrev}
           >
-            <FaCaretLeft color="gray" size="2rem" />
+            {isRTL ? (
+              <FaCaretRight color="gray" size="2rem" />
+            ) : (
+              <FaCaretLeft color="gray" size="2rem" />
+            )}
           </Button>
           <Button
             bg="transparent"
@@ -298,11 +301,14 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             _hover={{ transform: 'scale(1.05)' }}
             transition="all 0.2s"
             border="1px solid white"
-            dir={'ltr'}
             mb={{ base: '1.3rem' }}
             onClick={handleNext}
           >
-            <FaCaretRight size="2rem" />
+            {isRTL ? (
+              <FaCaretLeft color="white" size="2rem" />
+            ) : (
+              <FaCaretRight color="white" size="2rem" />
+            )}
           </Button>
         </Flex>
       </Flex>

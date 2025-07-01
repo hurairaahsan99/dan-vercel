@@ -80,7 +80,12 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
         />
       )}
 
-      <Flex w="100%" flexDir={{ base: 'column', lg: 'row' }} overflow="hidden" ref={tagsRef}>
+      <Flex
+        w="100%"
+        flexDir={{ base: 'column', lg: 'row' }}
+        overflow="hidden"
+        ref={tagsRef}
+      >
         {data.map((res: any, i: number) => {
           const isSelected = i === selectedIndex;
           return (
@@ -90,12 +95,12 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
               flex={1}
               minW={0}
               px="1rem"
-              py={{base:"0.5rem",lg:"1rem"}}
+              py={{ base: '0.5rem', lg: '1rem' }}
               // bg={`linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), ${res.bg_color}`}
               gap="1rem"
               borderRadius="3xl"
-               borderBottomLeftRadius={1}
-               borderBottomRightRadius={0}
+              borderBottomLeftRadius={1}
+              borderBottomRightRadius={0}
               cursor="pointer"
               onClick={() => {
                 setIsModalOpen(true);
@@ -195,27 +200,37 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
       {!isMobile && (
         <>
           {/* border for first 3 tags (LTR-left, RTL-right) */}
-          {((!isRTL && selectedIndex <= 2) || (isRTL && selectedIndex <= 2)) && (
+          {((!isRTL && selectedIndex <= 2) ||
+            (isRTL && selectedIndex <= 2)) && (
             <Box
               position="absolute"
               left={!isRTL ? 0 : 'auto'}
               right={isRTL ? 0 : 'auto'}
-              top={`calc(${tagsHeight}px + 0.01rem)`}
+              top="100px"
               bottom={0}
-              borderLeft={!isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'}
-              borderRight={isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'}
+              borderLeft={
+                !isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
+              }
+              borderRight={
+                isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
+              }
             />
           )}
           {/* border for last 3 tags (LTR-right, RTL-left) */}
-          {((!isRTL && selectedIndex >= 3) || (isRTL && selectedIndex >= 3)) && (
+          {((!isRTL && selectedIndex >= 3) ||
+            (isRTL && selectedIndex >= 3)) && (
             <Box
               position="absolute"
               right={!isRTL ? 0 : 'auto'}
               left={isRTL ? 0 : 'auto'}
-              top={`${tagsHeight}px`}
+              top="120px"
               bottom={0}
-              borderRight={!isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'}
-              borderLeft={isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'}
+              borderRight={
+                !isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
+              }
+              borderLeft={
+                isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
+              }
             />
           )}
         </>

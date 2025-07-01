@@ -136,7 +136,7 @@ const HeroBlogsDetails: React.FC<BackgroundSliderData> = ({
             dir={isRTL ? 'rtl' : 'ltr'}
             lineHeight={{ base: '40px', lg: '50px' }}
             overflow="hidden"
-            h={{ base: '9vh', lg: '12vh' }}
+            noOfLines={{ base: 3, lg: 2 }}
             dangerouslySetInnerHTML={{
               __html: isRTL ? description?.ar : description?.en,
             }}
@@ -149,7 +149,7 @@ const HeroBlogsDetails: React.FC<BackgroundSliderData> = ({
             as="a"
             href="#"
             target="_blank"
-            bg="white"
+            bg="#F4E0CC"
             w={{ base: '12vh', lg: '14vh' }}
             py={{ base: '1rem', lg: '1rem' }}
             fontSize={{ base: '10px', lg: '16px' }}

@@ -29,6 +29,7 @@ interface data {
   titleColor?: string;
   marginX?: string;
   inView: boolean;
+  lineHeight?: any;
 }
 
 const containerVariants = {
@@ -62,6 +63,7 @@ const AboutSectionComponent: React.FC<data> = ({
   titleColor,
   marginX,
   inView,
+  lineHeight,
 }) => {
   const MotionBox = motion(Box);
   const MotionImage = motion(Image);
@@ -167,7 +169,8 @@ const AboutSectionComponent: React.FC<data> = ({
           fontWeight={400}
           fontSize={{ base: '1rem', lg: '1.1rem' }}
           dir={isRTL ? 'rtl' : 'ltr'}
-          className='Readex-Light'
+          className="Readex-Light"
+          lineHeight={lineHeight}
           dangerouslySetInnerHTML={{
             __html: isRTL ? data?.Description_ar : data?.Description_en,
           }}

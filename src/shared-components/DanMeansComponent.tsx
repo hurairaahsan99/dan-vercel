@@ -11,6 +11,7 @@ interface ExperienceSectionComponentProps {
   Description_en: string;
   Description_ar: string;
   Image_url: string;
+  lineHeight?: any;
 }
 
 const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
@@ -19,6 +20,7 @@ const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
   Description_en,
   Description_ar,
   Image_url,
+  lineHeight,
 }) => {
   const { language } = useLanguage();
   const isRTL = language === 'ar';
@@ -97,14 +99,14 @@ const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
         <Text pb={'1rem'}>{isRTL ? title_ar : title_en}</Text>
         <Box
           fontWeight={400}
-           className='Readex-Light'
+          className="Readex-Light"
           fontSize={isMobile ? '1rem' : '1.1rem'}
           w={{ base: '100%', lg: '100%' }}
           dangerouslySetInnerHTML={{
             __html: isRTL ? Description_ar : Description_en,
           }}
           color="#552a0e"
-          lineHeight="35px"
+          lineHeight={lineHeight ? lineHeight : '35px'}
           sx={{
             strong: {
               color: '#F57D00',

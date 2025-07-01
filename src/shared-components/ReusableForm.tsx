@@ -165,7 +165,7 @@ const ReusableForm: React.FC<FormData> = ({
                     fontSize={{ base: '1rem', lg: '1.1rem' }}
                     fontWeight={500}
                     color="#552a0e"
-                     py="0.5rem"
+                    py="0.5rem"
                   >
                     {isRTL ? field.label.ar : field.label.en}
                     {required?.includes(field.id) && (
@@ -207,7 +207,7 @@ const ReusableForm: React.FC<FormData> = ({
                     >
                       <HStack
                         wrap={{ base: 'wrap', lg: 'nowrap' }}
-                        gap={6}
+                        gap={{ base: 6, lg: '40' }}
                         w="100%"
                       >
                         {field.options?.map((opt) => (
@@ -224,21 +224,34 @@ const ReusableForm: React.FC<FormData> = ({
                           </Radio>
                         ))}
                         {(() => {
-                          const otherOpt = field.options?.find((o) => o.value.toLowerCase().includes('others'));
+                          const otherOpt = field.options?.find((o) =>
+                            o.value.toLowerCase().includes('others'),
+                          );
                           return formValues[field.id] === otherOpt?.value ? (
                             <Input
                               type="text"
                               w={{ base: '100%', lg: 'auto' }}
                               placeholder={isRTL ? 'أدخل النص' : 'Other...'}
                               value={formValues[`${field.id}_other`] || ''}
-                              onChange={(e) => handleChange(`${field.id}_other`, e.target.value)}
-                              _focus={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
-                              _hover={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
+                              onChange={(e) =>
+                                handleChange(
+                                  `${field.id}_other`,
+                                  e.target.value,
+                                )
+                              }
+                              _focus={{
+                                boxShadow: 'none',
+                                border: '2px solid #552A0E4D',
+                              }}
+                              _hover={{
+                                boxShadow: 'none',
+                                border: '2px solid #552A0E4D',
+                              }}
                               border="1px solid #552A0E4D"
                               borderRadius={6}
                               bg={inputColor ? '#f7f1eb' : '#faf7f3'}
                               color="#552A0E"
-                               py="1.5rem"
+                              py="1.5rem"
                             />
                           ) : null;
                         })()}
@@ -276,13 +289,19 @@ const ReusableForm: React.FC<FormData> = ({
                       ))}
                     </Select>
                   ) : field.type === 'tel' ? (
-                    <Flex w="100%" mt={{ base: '1rem', lg: 0 }} gap={2} >
+                    <Flex w="100%" mt={{ base: '1rem', lg: 0 }} gap={2}>
                       <Select
                         w={{ base: '35%', lg: '25%' }}
                         value={'+966'}
                         isDisabled
-                        _focus={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
-                        _hover={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
+                        _focus={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E4D',
+                        }}
+                        _hover={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E4D',
+                        }}
                         border="1px solid #552A0E4D"
                         borderRadius={6}
                         bg={inputColor ? '#f7f1eb' : '#faf7f3'}
@@ -297,14 +316,22 @@ const ReusableForm: React.FC<FormData> = ({
                         w={{ base: '65%', lg: '75%' }}
                         value={formValues[field.id]}
                         onChange={(e) => handleChange(field.id, e.target.value)}
-                        placeholder={isRTL ? field.placeholder?.ar : field.placeholder?.en}
-                        _focus={{ boxShadow: 'none', border: '2px solid #552A0E' }}
-                        _hover={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
+                        placeholder={
+                          isRTL ? field.placeholder?.ar : field.placeholder?.en
+                        }
+                        _focus={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E',
+                        }}
+                        _hover={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E4D',
+                        }}
                         border="1px solid #552A0E4D"
                         borderRadius={6}
                         bg={inputColor ? '#f7f1eb' : '#faf7f3'}
-                              color="#552A0E"
-                               py="1.5rem"
+                        color="#552A0E"
+                        py="1.5rem"
                         _placeholder={{ color: '#C0C0C0' }}
                       />
                     </Flex>
@@ -313,11 +340,19 @@ const ReusableForm: React.FC<FormData> = ({
                       <Input
                         type="text"
                         value={formValues[field.id] || ''}
-                                isReadOnly
-                                 py="1.5rem"
-                        placeholder={isRTL ? field.placeholder?.ar : field.placeholder?.en}
-                        _focus={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
-                        _hover={{ boxShadow: 'none', border: '2px solid #552A0E4D' }}
+                        isReadOnly
+                        py="1.5rem"
+                        placeholder={
+                          isRTL ? field.placeholder?.ar : field.placeholder?.en
+                        }
+                        _focus={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E4D',
+                        }}
+                        _hover={{
+                          boxShadow: 'none',
+                          border: '2px solid #552A0E4D',
+                        }}
                         border="1px solid #552A0E4D"
                         borderRadius={6}
                         bg={inputColor ? '#f7f1eb' : '#faf7f3'}
@@ -366,7 +401,6 @@ const ReusableForm: React.FC<FormData> = ({
                             <Input
                               type="file"
                               display="none"
-
                               onChange={(e) => {
                                 const value = e.target.files?.[0]?.name || '';
                                 handleChange(field.id, value);

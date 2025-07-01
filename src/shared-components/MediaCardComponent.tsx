@@ -83,7 +83,7 @@ const MediaCardComponent: React.FC<JournalCardComponentProps> = ({
       className="Readex-Light"
     >
       {noHeading ? (
-        <Flex gap={'0.6rem'} mb={'1rem'} justify={'center'}>
+        <Flex gap={'1.2rem'} mb={'1rem'} justify={'center'}>
           {displayList.map((item, index) => (
             <Box
               key={index}

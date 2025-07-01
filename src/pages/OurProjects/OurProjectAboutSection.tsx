@@ -34,7 +34,12 @@ const OurProjectAboutSection = ({ inView }: { inView: boolean }) => {
     BgImage: '',
   };
   return (
-    <AboutSectionComponent marginX="2rem" data={ResData} inView={inView} />
+    <AboutSectionComponent
+      lineHeight={{ base: '30px', lg: '35px' }}
+      marginX="2rem"
+      data={ResData}
+      inView={inView}
+    />
   );
 };
 

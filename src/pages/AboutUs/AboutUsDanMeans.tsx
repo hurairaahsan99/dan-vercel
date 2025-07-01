@@ -38,6 +38,7 @@ const AboutUsDanMeans = () => {
   }
   return (
     <DanMeansComponent
+      lineHeight={{ base: '28px', lg: '42px' }}
       Description_en={data?.data[0]?.sub_title?.en}
       Description_ar={data?.data[0]?.sub_title?.ar}
       Image_url={data?.data[0]?.bg_image}

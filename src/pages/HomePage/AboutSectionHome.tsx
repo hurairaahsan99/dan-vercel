@@ -39,7 +39,13 @@ const AboutSectionHome = ({ inView }: { inView: boolean }) => {
     Logo: data?.data[0]?.logo,
   };
 
-  return <AboutSectionComponent data={ResData} inView={inView} />;
+  return (
+    <AboutSectionComponent
+      lineHeight={{ base: '28px', lg: '37px' }}
+      data={ResData}
+      inView={inView}
+    />
+  );
 };
 
 export default AboutSectionHome;

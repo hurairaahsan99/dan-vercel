@@ -49,10 +49,10 @@ const AboutUsExperienceSection = () => {
     return <></>;
   }
   const transformedData = data?.blogs?.map((item: any) => ({
-    Title_en: item.title.en,
-    Title_ar: item.title.ar,
-    Sub_Title_en: item.subtitle.en,
-    Sub_Title_ar: item.subtitle.ar,
+    Title_en: item.subtitle.en,
+    Title_ar: item.subtitle.ar,
+    Sub_Title_en: item.title.en,
+    Sub_Title_ar: item.title.ar,
     Description_en: item.description.en,
     Description_ar: item.description.ar,
     Image: item.image,
