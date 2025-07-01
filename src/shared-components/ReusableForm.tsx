@@ -280,7 +280,6 @@ const ReusableForm: React.FC<FormData> = ({
                       color="#552A0E"
                       _placeholder={{ color: '#C0C0C0' }}
                       {...(isRTL ? { pr: '2.5rem', pl: '0.5rem' } : {})}
-                      icon={isRTL ? <ChevronDownIcon /> : undefined}
                     >
                       {field.options?.map((opt) => (
                         <option key={opt.value} value={opt.value}>
@@ -289,28 +288,36 @@ const ReusableForm: React.FC<FormData> = ({
                       ))}
                     </Select>
                   ) : field.type === 'tel' ? (
-                    <Flex w="100%" mt={{ base: '1rem', lg: 0 }} gap={2}>
-                      <Select
-                        w={{ base: '35%', lg: '25%' }}
-                        value={'+966'}
-                        isDisabled
-                        _focus={{
-                          boxShadow: 'none',
-                          border: '2px solid #552A0E4D',
-                        }}
-                        _hover={{
-                          boxShadow: 'none',
-                          border: '2px solid #552A0E4D',
-                        }}
-                        border="1px solid #552A0E4D"
-                        borderRadius={6}
-                        bg={inputColor ? '#f7f1eb' : '#faf7f3'}
-                        color="#552A0E"
-                        {...(isRTL ? { pr: '2.5rem', pl: '0.5rem' } : {})}
-                        icon={isRTL ? <ChevronDownIcon /> : undefined}
-                      >
-                        <option value="+966">+966</option>
-                      </Select>
+                    <Flex w="100%" mt={{ base: '1rem', lg: 0 }} gap={2} position="relative">
+                      <Box position="relative" w={{ base: '35%', lg: '22%' }}>
+                        <Box
+                          w="100%"
+                          h="100%"
+                          display="flex"
+                          alignItems="center"
+                          justifyContent={isRTL ? 'flex-start' : 'flex-end'}
+                          border="1px solid #552A0E4D"
+                          borderRadius={6}
+                          bg={inputColor ? '#f7f1eb' : '#faf7f3'}
+                          color="#552A0E"
+                          pl={isRTL ? '1rem' : '0.5rem'}
+                          pr={isRTL ? '0.5rem' : '1rem'}
+                          fontWeight={500}
+                          fontSize="1rem"
+                        >
+                          {isRTL ? (
+                                  <Flex gap={'2rem'} align={'center'} >
+                                    966+
+                              <ChevronDownIcon color="#552A0E" />
+                            </Flex>
+                          ) : (
+                            <Flex gap={'2rem'} align={'center'} >
+                                      <ChevronDownIcon color="#552A0E" />
+                                      +966
+                            </Flex>
+                          )}
+                        </Box>
+                      </Box>
                       <Input
                         type="tel"
                         w={{ base: '65%', lg: '75%' }}

@@ -287,7 +287,7 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             {isRTL ? (
               <FaCaretRight color="gray" size="2rem" />
             ) : (
-              <FaCaretLeft color="gray" size="2rem" />
+            <FaCaretLeft color="gray" size="2rem" />
             )}
           </Button>
           <Button

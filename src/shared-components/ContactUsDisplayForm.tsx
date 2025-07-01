@@ -55,7 +55,7 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
       borderRight="none"
       borderBottomLeftRadius={0}
       w={{ base: '90%', lg: '90%' }}
-      overflow="hidden"
+      overflow={{base:'visible',lg:'hidden'}}
     >
       {/* Desktop-only connecting top border (hide in RTL) */}
       {!isMobile && !isRTL && (
@@ -133,16 +133,14 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
                 borderLeftWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
                 borderRightWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
                 borderTopWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
-                borderBottomColor: isMobile
-                  ? 'transparent'
-                  : (selectedIndex === 1 && i === 0) ||
-                    (selectedIndex === 2 && i <= 1)
+                borderBottomColor: isMobile && isSelected
+                  ? bgColors[i]
+                  : !isMobile && ((selectedIndex === 1 && i === 0) || (selectedIndex === 2 && i <= 1))
                   ? bgColors[selectedIndex]
                   : 'transparent',
-                borderBottomWidth: isMobile
-                  ? '0px'
-                  : (selectedIndex === 1 && i === 0) ||
-                    (selectedIndex === 2 && i <= 1)
+                borderBottomWidth: isMobile && isSelected
+                  ? '4px'
+                  : !isMobile && ((selectedIndex === 1 && i === 0) || (selectedIndex === 2 && i <= 1))
                   ? '4px'
                   : '0px',
               }}
@@ -206,7 +204,7 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
               position="absolute"
               left={!isRTL ? 0 : 'auto'}
               right={isRTL ? 0 : 'auto'}
-              top="100px"
+              top="87px"
               bottom={0}
               borderLeft={
                 !isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
@@ -223,7 +221,7 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
               position="absolute"
               right={!isRTL ? 0 : 'auto'}
               left={isRTL ? 0 : 'auto'}
-              top="120px"
+              top="87px"
               bottom={0}
               borderRight={
                 !isRTL ? `4px solid ${bgColors[selectedIndex]}` : 'none'
