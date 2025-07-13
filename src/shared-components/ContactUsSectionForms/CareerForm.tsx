@@ -105,6 +105,7 @@ const CareerForm = () => {
         bgColor="#f7f1eb"
         required={['firstName', 'lastName', 'email', 'mobile', 'city', 'cv']}
         inputColor
+          TitleSize={{ base: '24px', lg: '42px' }}
       />
     </Box>
   );

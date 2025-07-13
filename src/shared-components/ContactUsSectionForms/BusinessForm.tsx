@@ -124,6 +124,7 @@ const BusinessForm = () => {
           'email',
           'phone',
         ]}
+          TitleSize={{ base: '24px', lg: '42px' }}
         inputColor
       />
     </Box>

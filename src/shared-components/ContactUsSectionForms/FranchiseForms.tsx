@@ -112,6 +112,7 @@ const FranchiseForm = () => {
           'farmDescription',
         ]}
         inputColor
+        TitleSize={{ base: '20px', lg: '42px' }}
       />
     </Box>
   );

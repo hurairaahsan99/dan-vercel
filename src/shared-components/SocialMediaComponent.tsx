@@ -48,19 +48,69 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
 
   const handleNext = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: scrollRef.current.offsetWidth,
-        behavior: 'smooth',
-      });
+      const scrollAmount = scrollRef.current.offsetWidth;
+      const currentScroll = scrollRef.current.scrollLeft;
+      const targetScroll = currentScroll + scrollAmount;
+
+      // Use requestAnimationFrame for smoother scrolling on Safari iOS
+      const animateScroll = (start: number, end: number, duration: number) => {
+        const startTime = performance.now();
+
+        const step = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Easing function for smooth animation
+          const easeInOutQuad = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          const easedProgress = easeInOutQuad(progress);
+
+          if (scrollRef.current) {
+            scrollRef.current.scrollLeft = start + (end - start) * easedProgress;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+
+        requestAnimationFrame(step);
+      };
+
+      animateScroll(currentScroll, targetScroll, 300);
     }
   };
 
   const handlePrev = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: -scrollRef.current.offsetWidth,
-        behavior: 'smooth',
-      });
+      const scrollAmount = scrollRef.current.offsetWidth;
+      const currentScroll = scrollRef.current.scrollLeft;
+      const targetScroll = currentScroll - scrollAmount;
+
+      // Use requestAnimationFrame for smoother scrolling on Safari iOS
+      const animateScroll = (start: number, end: number, duration: number) => {
+        const startTime = performance.now();
+
+        const step = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Easing function for smooth animation
+          const easeInOutQuad = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          const easedProgress = easeInOutQuad(progress);
+
+          if (scrollRef.current) {
+            scrollRef.current.scrollLeft = start + (end - start) * easedProgress;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+
+        requestAnimationFrame(step);
+      };
+
+      animateScroll(currentScroll, targetScroll, 300);
     }
   };
 
@@ -184,6 +234,10 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             },
             '-ms-overflow-style': 'none',
             'scrollbar-width': 'none',
+            // Safari iOS specific improvements
+            '-webkit-overflow-scrolling': 'touch',
+            'scroll-behavior': 'auto',
+            'overscroll-behavior': 'contain',
           }}
         >
           {SocialPosts?.data?.map((tweet: any, index: any) => (

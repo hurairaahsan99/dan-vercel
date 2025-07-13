@@ -32,7 +32,7 @@ const ImageFooterSection: React.FC<ImageFooterProps> = ({
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       <Link href="https://www.pif.gov.sa/" target="_blank">
-        <Flex width={{ base: '30%', lg: '150%' }}>
+           <Flex width={{ base: '70%', lg: '22vh' }}>
           <Image
             src={isRTL ? '/assets/PifCompanyAr.png' : logo_1}
             alt=""

@@ -131,6 +131,7 @@ const SupplierForm = () => {
           'phone',
         ]}
         inputColor
+          TitleSize={{ base: '24px', lg: '42px' }}
       />
     </Box>
   );
