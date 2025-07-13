@@ -168,7 +168,7 @@ const Footer = () => {
         flexDir={{ base: 'column', lg: isRTL ? 'row-reverse' : 'row' }}
       >
         <Link href={isRTL ? 'https://www.pif.gov.sa/ar/' : footerData?.social_media_link} target="_blank">
-          <Flex
+           <Flex
             h={{ base: '45px', lg: '45px' }}
             position="relative"
             w={{
@@ -177,15 +177,12 @@ const Footer = () => {
             }}
           >
             <Image
-              src={isRTL ? '/assets/eeww.svg' : footerData?.logo1}
+              src={isRTL ? '/assets/ttt.webp': footerData?.logo1}
               alt={''}
-              layout="responsive"
-              width={100}
-              height={70}
-              objectFit="contain"
+              fill
+              style={{objectFit:"contain"}}
               priority
               quality={100}
-               style={{objectFit:"contain"}}
             />
           </Flex>
         </Link>
