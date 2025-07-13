@@ -34,11 +34,12 @@ const ImageFooterSection: React.FC<ImageFooterProps> = ({
       <Link href="https://www.pif.gov.sa/" target="_blank">
            <Flex width={{ base: '55%', lg: '22vh' }}>
           <Image
-            src={isRTL ? '/assets/ttt.webp' : logo_1}
+            src={isRTL ? '/assets/PifCompanyAr.png' : logo_1}
             alt=""
-            fill
+            layout="responsive"
             objectFit="contain"
-            quality={100}
+            width={230}
+            height={50}
           />
         </Flex>
       </Link>
