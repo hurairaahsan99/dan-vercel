@@ -36,10 +36,9 @@ const ImageFooterSection: React.FC<ImageFooterProps> = ({
           <Image
             src={isRTL ? '/assets/ttt.webp' : logo_1}
             alt=""
-            layout="responsive"
+            fill
             objectFit="contain"
-            width={230}
-            height={50}
+            quality={100}
           />
         </Flex>
       </Link>
