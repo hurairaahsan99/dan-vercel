@@ -84,7 +84,21 @@ const MediaCardComponent: React.FC<JournalCardComponentProps> = ({
       className="Readex-Light"
     >
       {noHeading ? (
-        <Flex gap={'1.2rem'} mb={'1rem'} justify={'center'}>
+        <Flex
+          gap={'1.2rem'}
+          mb={'1rem'}
+          justify={'center'}
+          overflowX={{ base: 'auto', lg: 'visible' }}
+          overflowY="hidden"
+          flexWrap={{ base: 'nowrap', lg: 'wrap' }}
+          sx={{
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            '-ms-overflow-style': 'none',
+            'scrollbar-width': 'none',
+          }}
+        >
           {displayList.map((item, index) => (
             <Box
               key={index}

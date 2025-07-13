@@ -7,7 +7,7 @@ const SupplierRegistration = () => {
   const formData: FormData = {
     formTitle: {
       en: 'Supplier Registration',
-      ar: 'تسجيل الموردين',
+      ar: 'تسجيل الموردون',
     },
     formFields: [
       {
@@ -38,7 +38,7 @@ const SupplierRegistration = () => {
         id: 'activityType',
         label: {
           en: 'Type of Business Activity',
-          ar: 'نوع النشاط التجاري',
+          ar: 'طبيعة نشاط المصنع',
         },
         type: 'radio',
         options: [
@@ -92,7 +92,7 @@ const SupplierRegistration = () => {
         id: 'mobile',
         label: {
           en: 'Mobile Number',
-          ar: 'رقم الجوال',
+          ar: 'رقم الهاتف',
         },
         placeholder: {
           en: 'Enter Mobile Number',

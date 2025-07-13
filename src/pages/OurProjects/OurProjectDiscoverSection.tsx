@@ -1,6 +1,7 @@
 'use client';
 import DiscoverSectionComponent from '@/shared-components/DiscoverSectionComponent';
 import useFetch from '@/Utils/Fetch/useFetch';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 const OurProjectDiscoverSection = () => {
@@ -68,7 +69,11 @@ const OurProjectDiscoverSection = () => {
     is_button: item.is_button,
     status: item.status,
   }));
-  return <DiscoverSectionComponent data={transformedData} />;
+  return <Box
+        mx={'1rem'}
+        width={{ base: 'calc(100% - 2rem)', lg: 'calc(100%)' }}>
+    <DiscoverSectionComponent data={transformedData} />
+    </Box>
 };
 
 export default OurProjectDiscoverSection;

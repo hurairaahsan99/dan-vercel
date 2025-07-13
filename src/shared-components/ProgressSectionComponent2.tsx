@@ -43,11 +43,11 @@ const ProgressSectionComponent2: React.FC<DiscoverSectionData> = ({ data }) => {
     <Flex
       mx={{ base: '0rem', lg: '2rem' }}
       width={{ base: 'calc(100% - 0rem)', lg: 'calc(100% - 4rem)' }}
-      maxH={{ base: '35vh', lg: '50vh' }}
+      maxH={{ base: '66vh', lg: '50vh' }}
       minH={{ base: '35vh', lg: '40vh' }}
       overflow="hidden"
       w="100%"
-      flexDir={{ base: 'column', lg: 'row' }}
+      flexDir={{ base: 'column', lg: isRTL?'row-reverse':'row' }}
       textAlign={{ base: 'center', lg: 'start' }}
     >
       <Flex
@@ -132,6 +132,7 @@ const ProgressSectionComponent2: React.FC<DiscoverSectionData> = ({ data }) => {
         className="Readex-Light"
         align={{ base: 'center', lg: 'start' }}
         px={{ base: '1rem', lg: '2rem' }}
+        mt={{ base: '1rem', lg: '0' }}
       >
         {data[0].title?.en && (
           <Text

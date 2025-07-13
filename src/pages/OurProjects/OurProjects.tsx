@@ -44,7 +44,6 @@ const OurProjects = () => {
         flexDir="column"
         position="relative"
         gap={10}
-        width="100%"
         height="auto"
       >
         {mappedData

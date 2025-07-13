@@ -7,7 +7,7 @@ const FranchisePartner = () => {
   const formData: FormData = {
     formTitle: {
       en: 'Franchise Partner',
-      ar: 'شريك الامتياز',
+      ar: 'شريك الامتياز التجاري',
     },
     formFields: [
       {
@@ -50,7 +50,7 @@ const FranchisePartner = () => {
         id: 'mobile',
         label: {
           en: 'Mobile Number',
-          ar: 'رقم الجوال',
+          ar: 'رقم الهاتف',
         },
         placeholder: {
           en: 'Enter your mobile number',

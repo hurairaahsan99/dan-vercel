@@ -192,7 +192,7 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
               zIndex={1}
               display={'flex'}
               width={{ base: '80vw', lg: '25%' }}
-              height={{ base: '40vh', lg: '30vh' }}
+              height={{ base: '40vh', lg: '35vh' }}
               overflow="hidden"
               justifyContent="center"
               position="relative"
@@ -273,7 +273,7 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
           align="center"
         >
           <Button
-            bg="white"
+            bg={isRTL ? "transparent" : "white"}
             px={{ base: '1rem', lg: '1rem' }}
             py={{ base: '0.7rem', lg: '1.2rem' }}
             fontSize={{ base: '10px', lg: '16px' }}
@@ -283,16 +283,16 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             transition="all 0.2s"
             border="1px solid white"
             mb={{ base: '1.5rem' }}
-            onClick={handlePrev}
+            onClick={isRTL ? handleNext : handlePrev}
           >
             {isRTL ? (
-              <FaCaretRight color="gray" size="2rem" />
+              <FaCaretRight color="white" size="2rem" />
             ) : (
             <FaCaretLeft color="gray" size="2rem" />
             )}
           </Button>
           <Button
-            bg="transparent"
+            bg={isRTL ? "white" : "transparent"}
             px={{ base: '1rem', lg: '1rem' }}
             py={{ base: '0.7rem', lg: '1.2rem' }}
             fontSize={{ base: '10px', lg: '16px' }}
@@ -303,10 +303,10 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
             transition="all 0.2s"
             border="1px solid white"
             mb={{ base: '1.3rem' }}
-            onClick={handleNext}
+            onClick={isRTL ? handlePrev : handleNext}
           >
             {isRTL ? (
-              <FaCaretLeft color="white" size="2rem" />
+              <FaCaretLeft color="grey" size="2rem" />
             ) : (
               <FaCaretRight color="white" size="2rem" />
             )}

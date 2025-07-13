@@ -1,5 +1,6 @@
 import ProgressSectionComponent2 from '@/shared-components/ProgressSectionComponent2';
 import useFetch from '@/Utils/Fetch/useFetch';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 const OurProjectProgressSection2 = () => {
@@ -28,7 +29,11 @@ const OurProjectProgressSection2 = () => {
     is_button: item.is_button,
     is_FullView: item.is_full_view,
   }));
-  return <ProgressSectionComponent2 data={transformedData} />;
+  return <Box
+        mx={'1rem'}
+    width={{ base: 'calc(100% - 2rem)', lg: 'calc(100%)' }}>
+    <ProgressSectionComponent2 data={transformedData} />
+  </Box>
 };
 
 export default OurProjectProgressSection2;

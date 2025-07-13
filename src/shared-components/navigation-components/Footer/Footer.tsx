@@ -167,7 +167,7 @@ const Footer = () => {
         align={{ base: 'center', lg: 'start' }}
         flexDir={{ base: 'column', lg: isRTL ? 'row-reverse' : 'row' }}
       >
-        <Link href={footerData?.social_media_link} target="_blank">
+        <Link href={isRTL ? 'https://www.pif.gov.sa/ar/' : footerData?.social_media_link} target="_blank">
           <Flex
             h={{ base: '45px', lg: '45px' }}
             position="relative"

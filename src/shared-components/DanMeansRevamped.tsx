@@ -131,7 +131,7 @@ const DanMeansRevamped: React.FC<DanMeansRevampedProps> = ({
           px={{ base: '1rem', lg: '3rem' }}
           justify="space-between"
           align="center"
-          gap={{ base: '4rem', lg: 0 }}
+          gap={{ base: '1rem', lg: 0 }}
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -184,12 +184,14 @@ const DanMeansRevamped: React.FC<DanMeansRevampedProps> = ({
                     scale: 1.1,
                     transition: { duration: 0.2 }
                   }}
+
                 >
                   <Box
-                    w={{base:'40px',lg:"60px"}}
-                    h={{base:'40px',lg:"60px"}}
+                    w={{base:'50px',lg:"60px"}}
+                    h={{base:'50px',lg:"60px"}}
                     position="relative"
                     transition="all 0.3s ease"
+                      mt={{base:'4rem',lg:'0'}}
                   >
                     <Image
                       src={src}
