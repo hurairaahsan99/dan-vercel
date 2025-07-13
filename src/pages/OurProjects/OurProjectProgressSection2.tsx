@@ -30,7 +30,7 @@ const OurProjectProgressSection2 = () => {
     is_FullView: item.is_full_view,
   }));
   return <Box
-        mx={'1rem'}
+        mx={{base:'1rem',lg:'0rem'}}
     width={{ base: 'calc(100% - 2rem)', lg: 'calc(100%)' }}>
     <ProgressSectionComponent2 data={transformedData} />
   </Box>

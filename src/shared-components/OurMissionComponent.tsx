@@ -103,6 +103,7 @@ const OurMissionComponent: React.FC<MissionDataProps> = ({ bg_Img, cards }) => {
             noOfLines={4}
             textAlign="center"
             className="Readex-Light"
+              lineHeight={{base:'1.1rem',lg:'1.5rem'}}
           >
             {isRTL ? res.description_ar : res.description_en}
           </Flex>

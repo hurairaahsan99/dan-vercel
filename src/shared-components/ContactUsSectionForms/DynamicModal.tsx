@@ -82,7 +82,7 @@ const DynamicContent: React.FC<DynamicContentProps> = ({
           p={{ base: 0, lg: 0 }}
           borderRadius="md"
           position="relative"
-          width="100%"
+          width="full"
         >
           <Box>{renderForm()}</Box>
         </Flex>

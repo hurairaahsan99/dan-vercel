@@ -209,7 +209,8 @@ const ReusableForm: React.FC<FormData> = ({
                       <HStack
                         wrap={{ base: 'wrap', lg: 'nowrap' }}
                         gap={{ base: 6, lg: '40' }}
-                        w="100%"
+                          w="100%"
+                            color={"#552A0E"}
                       >
                         {field.options?.map((opt) => (
                           <Radio
@@ -218,8 +219,9 @@ const ReusableForm: React.FC<FormData> = ({
                             _checked={{
                               bg: '#59260A',
                               borderColor: '#59260A',
-                              color: 'white',
+                              color: "#552A0E",
                             }}
+
                           >
                             {isRTL ? opt.label.ar : opt.label.en}
                           </Radio>

@@ -70,7 +70,7 @@ const OurProjectDiscoverSection = () => {
     status: item.status,
   }));
   return <Box
-        mx={'1rem'}
+        mx={{base:'1rem',lg:'0rem'}}
         width={{ base: 'calc(100% - 2rem)', lg: 'calc(100%)' }}>
     <DiscoverSectionComponent data={transformedData} />
     </Box>

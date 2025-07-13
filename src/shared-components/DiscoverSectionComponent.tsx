@@ -114,6 +114,7 @@ const DiscoverSectionComponent: React.FC<DiscoverSectionData> = ({ data }) => {
                 mb={{ base: '1rem', lg: '1rem' }}
                 color={'#552a0e'}
                 px={{ base: '1rem', lg: '2rem' }}
+
               >
                 <Text
                   fontWeight={400}

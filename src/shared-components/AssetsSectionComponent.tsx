@@ -115,6 +115,7 @@ const AssetsSectionComponent: React.FC<AssetsProps> = ({ data }) => {
             textAlign="center"
             color="#5A2910"
             className="Readex-Light"
+              lineHeight={{base:'1.1rem',lg:'1.5rem'}}
           >
             {isRTL ? res.description.ar : res.description.en}
           </Flex>
