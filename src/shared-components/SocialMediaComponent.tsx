@@ -191,13 +191,12 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
               key={index}
               zIndex={1}
               display={'flex'}
-              width={{ base: '80vw', lg: '30%' }}
-              height={{ base: '40vh', lg: '40vh' }}
+              width={{ base: '80vw', lg: '25%' }}
+              height={{ base: '40vh', lg: '30vh' }}
               overflow="hidden"
               justifyContent="center"
               position="relative"
               flexShrink={{ base: '0', lg: '0' }}
-              border="3px solid white"
               bg="white"
             >
               {tweet.attachments?.media_keys?.map((mediaKey: string) => {
@@ -209,21 +208,23 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
                     <Image
                       src={media.url}
                       alt="Card image"
-                      fill
-                      objectFit="responsive"
-                      objectPosition="center"
-                      style={{ padding: '1rem', paddingBottom: '3.5rem' }}
+                     fill
+                      objectFit="cover"
+                      objectPosition="-6px 0px"
+                      style={{ padding: '0.9rem', paddingBottom: '3.7rem' }}
                     />
                     <Flex
                       bg="white"
                       position="absolute"
                       bottom={1}
-                      left={2}
+                      left={3}
                       borderRadius="full"
+                      pb={1}
                     >
                       <Avatar
                         border="1px solid #592F14"
-                        p={2}
+                        p={1}
+                        size={'md'}
                         background="white"
                         src="/assets/DanBrownLogo.png"
                         name="Dan"
@@ -233,16 +234,16 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
                       flexDir="column"
                       position="absolute"
                       bottom={'2%'}
-                      left={'20%'}
+                      left={'23%'}
                       zIndex={1}
-                      textAlign={isRTL ? 'right' : 'left'}
+                      textAlign={'left'}
                       color="white"
                       fontWeight={500}
                       dir={isRTL ? 'rtl' : 'ltr'}
                     >
                       <Text
                         fontSize={{ base: '1rem', lg: '1rem' }}
-                        dir={isRTL ? 'rtl' : 'ltr'}
+                        dir={'ltr'}
                         fontWeight={600}
                         color="#552A0E"
                       >
@@ -255,7 +256,7 @@ const SocialMediaComponent: React.FC<SocialMediaData> = ({
                         fontWeight={400}
                         color="#552A0E"
                       >
-                        {isRTL ? sub_title?.ar : '@DanCompanySA  |  june 27'}
+                        {'@DanCompanySA'}
                       </Text>
                     </Flex>
                   </Flex>

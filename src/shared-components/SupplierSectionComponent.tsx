@@ -73,10 +73,10 @@ const SupplierSectionComponent: React.FC<SupplierProps> = ({
           <MotionFlex
             key={index}
             flexDir="column"
-            minW={{ base: '14vh', lg: '28vh' }}
-            maxW={{ base: '16vh', lg: '30vh' }}
-            minH={{ base: '14vh', lg: '28vh' }}
-            maxH={{ base: '16vh', lg: '30vh' }}
+            minW={{ base: '140px', lg: '28vh' }}
+            maxW={{ base: '140px', lg: '30vh' }}
+            minH={{ base: '140px', lg: '28vh' }}
+            maxH={{ base: '140px', lg: '30vh' }}
             borderRadius="full"
             justify="center"
             align="center"
@@ -118,8 +118,8 @@ const SupplierSectionComponent: React.FC<SupplierProps> = ({
             onMouseLeave={() => setIsHover(null)}
           >
             <MotionFlex
-              minW={{ base: '4vh', lg: '10vh' }}
-              maxW={{ base: '6vh', lg: '12vh' }}
+              minW={{ base: '50px', lg: '10vh' }}
+              maxW={{ base: '50px', lg: '12vh' }}
               whileHover={{ scale: 1.1 }}
               width="100%"
             >
@@ -139,7 +139,7 @@ const SupplierSectionComponent: React.FC<SupplierProps> = ({
             </MotionFlex>
             <Text
               textAlign="center"
-              fontSize={{ base: '0.8rem', lg: '1.1rem' }}
+              fontSize={{ base: '0.6rem', lg: '1.1rem' }}
               fontWeight={500}
               lineHeight="1.2rem"
               whiteSpace="normal"

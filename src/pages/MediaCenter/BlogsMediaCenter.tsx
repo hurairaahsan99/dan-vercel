@@ -2,6 +2,7 @@
 import MediaCardComponent from '@/shared-components/MediaCardComponent';
 import useFetch from '@/Utils/Fetch/useFetch';
 import React from 'react';
+import { mediaCardColors } from '@/constants/colors';
 
 const BlogsMediaCenter = () => {
   const { data, isLoading, error } = useFetch<any>(
@@ -11,12 +12,7 @@ const BlogsMediaCenter = () => {
   if (isLoading) {
     return <></>;
   }
-  const darkColors = [
-    '#74C07C',
-    '#EC4B46',
-    '#62460e',
-    '#3B91D4',
-  ];
+  const darkColors = mediaCardColors;
   const uniqueCategories = [
     ...new Set(data?.blogs?.map((item: any) => item.category.en)),
   ];

@@ -1,9 +1,14 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, useBreakpointValue } from '@chakra-ui/react';
 import { useLanguage } from '@/context/LanguageProvider';
 import styled from '@emotion/styled';
+
+const useIsMobile = () => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+  return isMobile;
+};
 
 interface SliderProps {
   heading_en: string;
@@ -62,6 +67,7 @@ const ImageSlider: React.FC<SliderProps> = ({
 }) => {
   const { language } = useLanguage();
   const isRTL = language === 'ar';
+  const isMobile = useIsMobile();
   const duplicatedImages = [...images, ...images, ...images,...images, ...images];
 
   return (
@@ -89,7 +95,7 @@ const ImageSlider: React.FC<SliderProps> = ({
               <Flex
                 key={`image-${index}`}
                 width={{ base: '250px', lg: '400px' }}
-                height={{ base: '75px', lg: '90px' }}
+                height={{ base: '40px', lg: '90px' }}
                 minWidth="200px"
                 position="relative"
                 m={{ base: '0.5rem', lg: '1rem' }}
@@ -116,7 +122,7 @@ const ImageSlider: React.FC<SliderProps> = ({
                   sizes="100vw"
                   style={{
                     width: 'auto',
-                    height: 'auto',
+                    height: isMobile ? '100%' : '100%',
                     maxWidth: '100%',
                     maxHeight: '100%',
                   }}

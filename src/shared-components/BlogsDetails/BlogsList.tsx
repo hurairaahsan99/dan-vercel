@@ -1,4 +1,5 @@
 'use client';
+import { mediaCardColors } from '@/constants/colors';
 import MediaCardComponent from '@/shared-components/MediaCardComponent';
 import useFetch from '@/Utils/Fetch/useFetch';
 import React from 'react';
@@ -87,18 +88,7 @@ const BlogsList = () => {
   if (isLoading) {
     return <></>;
   }
-    const darkColors = [
-      '#71112c',
-      '#62460e',
-      '#137b39',
-      '#5a4376',
-      '#1c177b',
-      '#1d2855',
-      '#55075d',
-      '#4b7c57',
-      '#0c242a',
-      '#754c05',
-    ];
+    const darkColors = mediaCardColors;
     const uniqueCategories = [
       ...new Set(data?.blogs?.map((item: any) => item.category.en)),
     ];

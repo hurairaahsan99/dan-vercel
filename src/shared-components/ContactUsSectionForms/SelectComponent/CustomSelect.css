@@ -1,0 +1,86 @@
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  padding-inline-end: 30px; /* Space for the arrow */
+  border: 1px solid #552A0E4D;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  color: #552A0E;
+}
+
+.select-box:hover {
+  border: 2px solid #552A0E4D;
+  padding: 9px;
+  padding-inline-end: 29px;
+}
+
+.select-box.open {
+  border: 2px solid #552A0E;
+  padding: 9px;
+  padding-inline-end: 29px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-select[dir="ltr"] .arrow {
+  right: 10px;
+}
+
+.custom-select[dir="rtl"] .arrow {
+  left: 10px;
+}
+
+.selected-value {
+  display: block;
+  color: #552A0E;
+}
+
+.selected-value.placeholder {
+  color: #C0C0C0;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #552A0E4D;
+  border-radius: 6px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.options li {
+  padding: 10px;
+  cursor: pointer;
+  color: #552A0E;
+}
+
+.options li:hover {
+  background: #f5f5f5;
+}
+
+.custom-select[dir="rtl"] .selected-value,
+.custom-select[dir="rtl"] .options li {
+  text-align: right;
+}
+
+.custom-select[dir="ltr"] .selected-value,
+.custom-select[dir="ltr"] .options li {
+  text-align: left;
+}

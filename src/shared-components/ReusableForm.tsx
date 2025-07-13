@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import CustomSelect from './ContactUsSectionForms/SelectComponent/CustomSelect';
 
 export interface FormField {
   id: string;
@@ -258,35 +259,8 @@ const ReusableForm: React.FC<FormData> = ({
                       </HStack>
                     </RadioGroup>
                   ) : field.type === 'dropdown' ? (
-                    <Select
-                      value={formValues[field.id]}
-                      onChange={(e) => handleChange(field.id, e.target.value)}
-                      placeholder={
-                        isRTL ? field.placeholder?.ar : field.placeholder?.en
-                      }
-                      w="100%"
-                      mt={{ base: '1rem', lg: 0 }}
-                      _focus={{
-                        boxShadow: 'none',
-                        border: '2px solid #552A0E4D',
-                      }}
-                      _hover={{
-                        boxShadow: 'none',
-                        border: '2px solid #552A0E4D',
-                      }}
-                      border="1px solid #552A0E4D"
-                      borderRadius={6}
-                      bg={inputColor ? '#f7f1eb' : '#faf7f3'}
-                      color="#552A0E"
-                      _placeholder={{ color: '#C0C0C0' }}
-                      {...(isRTL ? { pr: '2.5rem', pl: '0.5rem' } : {})}
-                    >
-                      {field.options?.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {isRTL ? opt.label.ar : opt.label.en}
-                        </option>
-                      ))}
-                    </Select>
+                   <CustomSelect options={field.options} isRTL={isRTL} placeholder={
+                        isRTL ? field.placeholder?.ar : field.placeholder?.en}/>
                   ) : field.type === 'tel' ? (
                     <Flex w="100%" mt={{ base: '1rem', lg: 0 }} gap={2} position="relative">
                       <Box position="relative" w={{ base: '35%', lg: '22%' }}>
@@ -326,6 +300,7 @@ const ReusableForm: React.FC<FormData> = ({
                         placeholder={
                           isRTL ? field.placeholder?.ar : field.placeholder?.en
                         }
+                        textAlign={isRTL ? 'right' : 'left'}
                         _focus={{
                           boxShadow: 'none',
                           border: '2px solid #552A0E',

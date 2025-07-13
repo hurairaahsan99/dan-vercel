@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageProvider';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
+import { mediaCardColors } from '@/constants/colors';
 
 interface JournalData {
   published_date?: {

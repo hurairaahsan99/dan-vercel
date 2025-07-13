@@ -8,7 +8,7 @@ import {
   Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import useFetch from '@/Utils/Fetch/useFetch';
 
@@ -49,8 +49,8 @@ const Footer = () => {
       flexDir="column"
       bgColor="#552A0E"
       px={{ base: '1rem', lg: '5rem' }}
-      overflow="hidden"
       zIndex={0}
+       overflow="hidden"
     >
       <Box
         position="absolute"
@@ -65,7 +65,7 @@ const Footer = () => {
           alt=""
           fill
           objectFit="cover"
-          quality={50}
+          quality={100}
           priority
           style={{ transform: isRTL ? 'scaleX(-1)' : 'none', opacity: '0.5' }}
         />
@@ -75,6 +75,7 @@ const Footer = () => {
         height={100}
         objectFit="contain"
         priority
+        quality={100}
         src={footerData?.logo}
         style={{
           position: 'absolute',
@@ -114,7 +115,7 @@ const Footer = () => {
           {isRTL ? 'الشركاء' : 'Media Center'}
         </Link>
         <Link
-         href={isRTL ? '/ar/contact-us' : '/en/contact-us'}
+          href={isRTL ? '/ar/contact-us' : '/en/contact-us'}
           _hover={{ textDecoration: 'none', color: '#E9810B' }}
           onClick={() => {
             setContactFormIndex(2); // Careers tab index in ContactUsDisplayForm
@@ -123,7 +124,7 @@ const Footer = () => {
           color={activeMenu === 'our-business' ? '#E9810B' : 'white'}
           textTransform={'capitalize'}
         >
-        {isRTL ? 'الموردين' : 'Careers'}
+          {isRTL ? 'الموردين' : 'Careers'}
         </Link>
         <Link
           href={isRTL ? '/ar/contact-us' : '/en/contact-us'}
@@ -135,7 +136,7 @@ const Footer = () => {
           color={activeMenu === 'sustainability' ? '#E9810B' : 'white'}
           textTransform={'capitalize'}
         >
-         {isRTL ? 'الوظائف' : 'Suppliers'}
+          {isRTL ? 'الوظائف' : 'Suppliers'}
         </Link>
         <Link
           href={isRTL ? '/ar/contact-us' : '/en/contact-us'}
@@ -147,7 +148,7 @@ const Footer = () => {
           color={activeMenu === 'sustainability' ? '#E9810B' : 'white'}
           textTransform={'capitalize'}
         >
-         {isRTL ? 'المركز الإعلامي' : 'Partners'}
+          {isRTL ? 'المركز الإعلامي' : 'Partners'}
         </Link>
         <Link
           href={isRTL ? '/ar/contact-us' : '/en/contact-us'}
@@ -170,16 +171,21 @@ const Footer = () => {
           <Flex
             h={{ base: '45px', lg: '45px' }}
             position="relative"
-            w={{ base: isRTL?'240px':'200px', lg: isRTL?'260px':'230px' }}
+            w={{
+              base: isRTL ? '240px' : '200px',
+              lg: isRTL ? '260px' : '230px',
+            }}
           >
             <Image
-              src={isRTL ? '/assets/pifAR.png' : footerData?.logo1}
+              src={isRTL ? '/assets/eeww.svg' : footerData?.logo1}
               alt={''}
               layout="responsive"
               width={100}
               height={70}
               objectFit="contain"
               priority
+              quality={100}
+               style={{objectFit:"contain"}}
             />
           </Flex>
         </Link>
@@ -217,6 +223,7 @@ const Footer = () => {
                           height={70}
                           objectFit="contain"
                           priority
+                          quality={100}
                         />
                       ) : null}
                     </Box>
@@ -230,6 +237,7 @@ const Footer = () => {
           fontSize="1rem"
           color="white"
           mt={3}
+          mb={{base:3,lg:1}}
           whiteSpace="nowrap"
           gap={4}
           opacity={0.9}

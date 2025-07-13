@@ -124,7 +124,7 @@ const TestimonialSectionComponent: React.FC<TestimonialSectionProps> = ({
               overflow="visible"
             >
               <Image
-                src={isMobile?'/assets/qqq.png':'/assets/DanLogoLong.png'}
+                src={isMobile ? '/assets/qqq.png' : '/assets/DanLogoLong.png'}
                 alt=""
                 fill
                 objectFit="contain"
@@ -174,9 +174,9 @@ const TestimonialSectionComponent: React.FC<TestimonialSectionProps> = ({
                   }
                 >
                   <MotionBox
-                    className='Readex-Light'
+                    className="Readex-Light"
                     dir={isRTL ? 'rtl' : 'ltr'}
-                    noOfLines={10}
+                    noOfLines={6}
                     whileHover={{ scale: 0.9 }}
                     lineHeight="2rem"
                     cursor="pointer"

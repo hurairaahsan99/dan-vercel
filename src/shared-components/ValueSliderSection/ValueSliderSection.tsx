@@ -3,6 +3,7 @@ import './ValueSliderSection.css';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageProvider';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 interface ValueSliderSectionProps {
   id: number;
@@ -20,6 +21,8 @@ interface ValueSliderSectionData {
 const ValueSliderSection: React.FC<ValueSliderSectionData> = ({ data }) => {
   const { language } = useLanguage();
   const isRTL = language === 'ar';
+  // Detect mobile screen (below md breakpoint)
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const [activeIndex, setActiveIndex] = useState(0);
   const dataArray = isRTL ? [...data]?.reverse() : data;
   return (
@@ -47,7 +50,7 @@ const ValueSliderSection: React.FC<ValueSliderSectionData> = ({ data }) => {
               objectFit="cover"
             />
           </div>
-          <div className="tabcontent">
+          <div className="tabcontent" dir={isRTL ? 'rtl' : 'ltr'}>
             <Flex
               flexDir="column"
               gap={3}
@@ -56,13 +59,15 @@ const ValueSliderSection: React.FC<ValueSliderSectionData> = ({ data }) => {
             >
               <Text
                 className="heading_mobileSection"
-                textAlign={isRTL ? 'end' : 'start'}
+                w={{base:isRTL?'75%':"90%",lg:"90%"}}
+                textAlign={{ base: isRTL ? 'start' : 'center', lg: isRTL ? 'start' : 'start' }}
               >
                 {isRTL ? item.title_ar : item.title_en}
               </Text>
               <Text
                 className="pharagraph_mobileSection"
-                textAlign={isRTL ? 'end' : 'start'}
+                w={{base:isRTL?'75%':"90%",lg:"90%"}}
+             textAlign={{ base: isRTL ? 'start' : 'center', lg: isRTL ? 'start' : 'start' }}
               >
                 {isRTL ? item.description_ar : item.description_en}
               </Text>

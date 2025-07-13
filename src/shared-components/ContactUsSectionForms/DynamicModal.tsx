@@ -79,7 +79,7 @@ const DynamicContent: React.FC<DynamicContentProps> = ({
       ) : (
         <Flex
           direction="column"
-          p={{ base: 4, lg: 0 }}
+          p={{ base: 0, lg: 0 }}
           borderRadius="md"
           position="relative"
           width="full"

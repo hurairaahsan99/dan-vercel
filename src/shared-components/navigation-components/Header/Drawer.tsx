@@ -139,7 +139,7 @@ const MenuDrawer: React.FC<{ isOpen: boolean; toggleDrawer: () => void }> = ({
                     py={'0.8rem'}
                     px={'0.8rem'}
                   >
-                    {isRTL ? 'تواصل عنا' : 'Contact Us'}
+                    {isRTL ? 'تواصل معنا' : 'Contact Us'}
                   </Link>
                   <Box
                     display={{ base: 'block', sm: 'none' }}
@@ -150,7 +150,7 @@ const MenuDrawer: React.FC<{ isOpen: boolean; toggleDrawer: () => void }> = ({
                     borderRadius={'2xl'}
                     _hover={{ cursor: 'pointer' }}
                     fontWeight={400}
-                  fontSize={{ base: '0.75rem', lg: '1rem' }}
+                    fontSize={{ base: '0.75rem', lg: '1rem' }}
                     onClick={() => toggleLanguage(isRTL ? 'en' : 'ar')}
                   >
                     <Text color="black">{isRTL ? 'English' : 'عــربـي'}</Text>

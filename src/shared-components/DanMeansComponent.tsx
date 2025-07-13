@@ -27,6 +27,8 @@ const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const MotionBox = motion(Box);
   const MotionImage = motion(Image);
+  const MotionFlex = motion(Flex);
+
   const childVariants1 = {
     hidden: { opacity: 0, y: 200 },
     visible: {
@@ -35,6 +37,20 @@ const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
       transition: { duration: 1.5, ease: 'easeOut' },
     },
   };
+
+  // Animation variants for the image
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      x: isRTL ? -100 : 100 // Move from left if RTL, from right if LTR
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 },
+    },
+  };
+
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -123,15 +139,18 @@ const DanMeansComponent: React.FC<ExperienceSectionComponentProps> = ({
         />
       </Flex>
       {Image_url && (
-        <Flex
+        <MotionFlex
           width={{ base: '100%', lg: '175vh' }}
           height={{ base: '15vh', lg: '35vh' }}
           overflow="hidden"
           justifyContent="center"
           position="relative"
+          variants={imageVariants}
+          initial="hidden"
+          animate="visible"
         >
           <Image src={Image_url} alt="" fill objectFit="contain" />
-        </Flex>
+        </MotionFlex>
       )}
     </Flex>
   );

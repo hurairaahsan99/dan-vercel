@@ -71,7 +71,7 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
             bottom: 'auto',
             width: `${((selectedIndex + 1) / data.length) * 100}%`,
             borderTop:
-              selectedIndex === 1 || selectedIndex === 2
+              selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3
                 ? '0px solid transparent'
                 : `4px solid ${bgColors[selectedIndex]}`,
             borderBottom: '0px solid transparent',
@@ -96,11 +96,10 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
               minW={0}
               px="1rem"
               py={{ base: '0.5rem', lg: '1rem' }}
-              // bg={`linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), ${res.bg_color}`}
               gap="1rem"
-              borderRadius="3xl"
-              borderBottomLeftRadius={1}
-              borderBottomRightRadius={0}
+              borderRadius={isMobile ? '3xl' : '3xl'}
+              borderBottomLeftRadius={isMobile ? '3xl' : (!isMobile && (i === 1 || i === 2)) ? '3xl' : (!isMobile && i === 0 && (selectedIndex === 3 || (isRTL && selectedIndex === 1) || (isRTL && selectedIndex === 2))) ? '3xl' : (!isMobile && i === 3 && isRTL && (selectedIndex === 0 || selectedIndex === 2)) ? '3xl' : (!isMobile && i === 3 && !isRTL && selectedIndex === 2) ? '3xl' : 0}
+              borderBottomRightRadius={isMobile ? '3xl' : (!isMobile && (i === 1 || i === 2)) ? '3xl' : (!isMobile && i === 0 && (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) && !isRTL) ? '3xl' : (!isMobile && i === 3 && isRTL && selectedIndex === 0) ? '3xl' : (!isMobile && i === 3 && isRTL && (selectedIndex === 1 || selectedIndex === 2)) ? '3xl' : (!isMobile && i === 0 && isRTL && selectedIndex === 3) ? '3xl' : (!isMobile && i === 3 && !isRTL && selectedIndex === 2) ? '3xl' : 0}
               cursor="pointer"
               onClick={() => {
                 setIsModalOpen(true);
@@ -119,38 +118,76 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
                   ? bgColors[i]
                   : isMobile
                   ? 'transparent'
-                  : 'rgba(0,0,0,0.1)',
+                  : isRTL
+                  ? (i === 0 // First tag left border (RTL)
+                    ? (selectedIndex === 1 ? bgColors[1] : 'transparent') // Show second tag's color when second tag is selected
+                    : i === 1 // Second tag gets first tag's color on left border (RTL)
+                    ? (selectedIndex === 2 ? bgColors[2] : 'transparent') // Show third tag's color when third tag is selected
+                    : i === 2 // Third tag gets second tag's color on left border (RTL)
+                    ? (selectedIndex === 1 ? bgColors[1] : selectedIndex === 3 ? bgColors[3] : 'transparent') // Show second tag's color when second tag is selected, or fourth tag's color when fourth tag is selected
+                    : i === 3 // Fourth tag gets third tag's color on left border (RTL)
+                    ? (selectedIndex === 3 ? bgColors[3] : 'transparent') // Only show fourth tag's color when fourth tag is selected
+                    : bgColors[i] + '40') // Unselected tags get their own faded color
+                  : (i === 0 // First tag left border (LTR)
+                    ? 'transparent' // Always transparent when not selected
+                    : i === 1 // Second tag gets first tag's color on left border (LTR)
+                    ? (selectedIndex === 0 ? bgColors[0] : 'transparent') // Only show when first tag is selected
+                    : i === 2 // Third tag gets second tag's color on left border (LTR)
+                    ? (selectedIndex === 1 ? bgColors[1] : 'transparent') // Only show when second tag is selected
+                    : i === 3 // Fourth tag gets third tag's color on left border (LTR)
+                    ? 'transparent' // Always transparent in LTR
+                    : bgColors[i] + '40'), // Unselected tags get their own faded color
                 borderRightColor: isSelected
                   ? bgColors[i]
                   : isMobile
                   ? 'transparent'
-                  : 'rgba(0,0,0,0.1)',
+                  : isRTL
+                  ? (i === 0 // First tag's right border (RTL)
+                    ? (selectedIndex === 0 ? bgColors[0] : 'transparent') // Show first tag's color when first tag is selected
+                    : i === 1 // Second tag's right border (RTL)
+                    ? (selectedIndex === 0 ? bgColors[0] : selectedIndex === 1 ? bgColors[1] : 'transparent') // Show first tag's color when first tag is selected, or second tag's color when second tag is selected
+                    : i === 2 // Third tag's right border (RTL)
+                    ? (selectedIndex === 2 ? bgColors[2] : 'transparent') // Show third tag's color when third tag is selected
+                    : i === 3 // Fourth tag's right border (RTL)
+                    ? (selectedIndex === 3 ? bgColors[3] : 'transparent') // Show fourth tag's color when fourth tag is selected
+                    : bgColors[i] + '40') // Unselected tags get their own faded color
+                  : (i === 0 // First tag's right border (LTR)
+                    ? (selectedIndex === 1 ? bgColors[1] : 'transparent') // Use second tag's color when second tag is selected
+                    : i === 1 // Second tag's right border (LTR)
+                    ? (selectedIndex === 2 ? bgColors[2] : 'transparent') // Use third tag's color when third tag is selected
+                    : i === 2 // Third tag's right border (LTR)
+                    ? (selectedIndex === 3 ? bgColors[3] : 'transparent') // Use fourth tag's color when fourth tag is selected
+                    : bgColors[i] + '40'), // Unselected tags get their own faded color
                 borderTopColor: isSelected
                   ? bgColors[i]
                   : isMobile
                   ? 'transparent'
-                  : 'rgba(0,0,0,0.1)',
-                borderLeftWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
-                borderRightWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
-                borderTopWidth: isSelected ? '4px' : isMobile ? '0px' : '1px',
+                  : bgColors[i] + '90', // Faded category color for unselected tags on web
+                borderLeftWidth: isMobile ? '4px' : isRTL ? (i === 0 ? (selectedIndex === 1 ? '4px' : '0px') : i === 1 ? (selectedIndex === 2 ? '4px' : '0px') : i === 2 ? (selectedIndex === 1 ? '4px' : selectedIndex === 3 ? '4px' : '0px') : i === 3 ? (selectedIndex === 3 ? '4px' : '0px') : (isSelected ? '4px' : '4px')) : (i === 0 ? (isSelected ? '4px' : '0px') : i === 1 ? (selectedIndex === 0 ? '4px' : '0px') : i === 2 ? (selectedIndex === 1 ? '4px' : '0px') : i === 3 ? '0px' : (isSelected ? '4px' : '4px')),
+                borderRightWidth: isMobile ? '4px' : isRTL ? (isSelected ? (i === 0 ? '4px' : '0px') : (i === 0 ? (selectedIndex === 0 ? '4px' : '0px') : i === 1 ? (selectedIndex === 0 ? '4px' : '0px') : i === 2 ? '0px' : i === 3 ? '0px' : '4px')) : (isSelected ? (i === 3 ? '4px' : '0px') : (i === 0 ? (selectedIndex === 1 ? '4px' : '0px') : i === 1 ? (selectedIndex === 2 ? '4px' : '0px') : i === 2 ? (selectedIndex === 3 ? '4px' : '0px') : i === 3 ? (selectedIndex === 2 ? '0px' : '4px') : '4px')),
+                borderTopWidth: isSelected ? '4px' : isMobile ? '0px' : '3px', // 2px for unselected tags on web
                 borderBottomColor: isMobile && isSelected
                   ? bgColors[i]
+                  : !isMobile && !isSelected
+                  ? bgColors[selectedIndex] + '90' // Selected tag's color with opacity for unselected tags' bottom border
                   : !isMobile && ((selectedIndex === 1 && i === 0) || (selectedIndex === 2 && i <= 1))
                   ? bgColors[selectedIndex]
                   : 'transparent',
                 borderBottomWidth: isMobile && isSelected
                   ? '4px'
+                  : !isMobile && !isSelected
+                  ? '3px' // Bottom border width for unselected tags on web
                   : !isMobile && ((selectedIndex === 1 && i === 0) || (selectedIndex === 2 && i <= 1))
                   ? '4px'
                   : '0px',
               }}
               transition={{ type: 'spring', stiffness: 260, damping: 25 }}
-              whileHover={{
-                scale: isSelected ? 1 : 0.97,
-                borderLeftColor: bgColors[i] + '80',
-                borderRightColor: bgColors[i] + '80',
-                borderTopColor: bgColors[i] + '80',
-              }}
+              // whileHover={{
+              //   scale: isSelected ? 1 : 0.97,
+              //   borderLeftColor: bgColors[i] + '80',
+              //   borderRightColor: bgColors[i] + '80',
+              //   borderTopColor: bgColors[i] + '80',
+              // }}
             >
               {res.logo && (
                 <Box
