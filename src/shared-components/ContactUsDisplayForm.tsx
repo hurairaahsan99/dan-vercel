@@ -55,7 +55,8 @@ const ContactUsDisplayForm = ({ data }: { data: any }) => {
       borderRight="none"
       borderBottomLeftRadius={0}
       w={{ base: '90%', lg: '90%' }}
-      overflow={{base:'visible',lg:'hidden'}}
+      overflow={{ base: 'visible', lg: 'hidden' }}
+      left={{base:'0',lg:isRTL ? '6.5%' : 'auto'}}
     >
       {/* Desktop-only connecting top border (hide in RTL) */}
       {!isMobile && !isRTL && (
