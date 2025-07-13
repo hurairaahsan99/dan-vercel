@@ -44,7 +44,7 @@ const DiscoverSectionComponent: React.FC<DiscoverSectionData> = ({ data }) => {
           minH={{ base: '35vh', lg: '30vh' }}
           overflow="hidden"
           w="100%"
-          flexDir={{ base: 'column', lg: index === 0 ? 'row' : 'row-reverse' }}
+          flexDir={{ base: 'column-reverse', lg: index === (isRTL?1:0 )? 'row' : 'row-reverse' }}
           textAlign={{ base: 'center', lg: 'start' }}
         >
           <Flex
@@ -62,6 +62,7 @@ const DiscoverSectionComponent: React.FC<DiscoverSectionData> = ({ data }) => {
               mb="0.8rem"
               dir={isRTL ? 'rtl' : 'ltr'}
               px={{ base: '0px', lg: '2rem' }}
+
             >
               {res.title?.en && res.sub_title?.ar ? (
                 <Flex flexDir="column" color={'#552a0e'} mt={2}>
